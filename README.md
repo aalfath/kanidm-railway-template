@@ -1,3 +1,5 @@
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/kanidm?utm_medium=integration&utm_source=button&utm_campaign=kanidm)
+
 # Kanidm on Railway
 
 A one-click [Railway](https://railway.com) template for [Kanidm](https://kanidm.com), the open-source identity management server (users, groups, passkeys, OAuth2/OpenID Connect, LDAP, RADIUS).
