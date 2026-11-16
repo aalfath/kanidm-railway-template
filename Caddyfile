@@ -1,0 +1,21 @@
+{
+	admin off
+	auto_https off
+	persist_config off
+	servers {
+		# Railway's edge connects from 100.64.0.0/10. Trust it so the real
+		# client IP and X-Forwarded-Proto reach Kanidm.
+		trusted_proxies static 100.64.0.0/10 127.0.0.1/8
+		client_ip_headers X-Forwarded-For
+	}
+}
+
+:{$PORT} {
+	reverse_proxy https://127.0.0.1:8443 {
+		transport http {
+			# Kanidm's certificate is self-signed and regenerated on every
+			# boot; the hop never leaves the container.
+			tls_insecure_skip_verify
+		}
+	}
+}
